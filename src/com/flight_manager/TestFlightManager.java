@@ -3,22 +3,21 @@ package com.flight_manager;
 import java.util.Scanner;
 
 public class TestFlightManager {
-	private static Scanner input = new Scanner(System.in);
+	private static Scanner input=new Scanner (System.in);
 	static SystemManager sm = new SystemManager();
-	static Airport air = new Airport();
-
+	static Airport air = new Airport(); 
 	public static void main(String[] args) {
 		menu();
 
 	}
-
 	private static void menu() {
+		String name;
 		System.out.print(print(0)+"\nInput: ");
 		int izbor = ScanInt();
 		switch (izbor) {
 		case 1:
 			System.out.print("Set name: ");
-			String name=input.next();
+			name=ScanStr();
 			boolean[] checks = { false, false, false };
 			while (checks[0] == false || checks[1] == false || checks[2] == false) {
 				checks[0] = false;
@@ -41,6 +40,8 @@ public class TestFlightManager {
 					name=ScanStr();
 			}
 			sm.createAirport(sm.getListOfAirports(), name);
+			System.out.println(print(1));
+			menu();
 			break;
 		case 2:
 			break;
@@ -60,22 +61,23 @@ public class TestFlightManager {
 		String text = "";
 		if (decision == 0)
 			text = "============================\n1 - Create Airport\n2 - Create Airline\n3 - Create flight\n4 - Book a seat on a flight\n5 - Izlaz\n============================";
-
+		if(decision == 1)
+			text = "============================\nA successful action!";
 		return text;
 	}
 
 	public static String ScanStr() {
 		int cross = 0;
-		String str = " ";
+		String str=null;
 		do {
 			try {
-				str = input.nextLine();
+				str = input.next();
 				cross = 1;
 			} catch (Exception e) {
-				input.nextLine();
 				System.out.println("Error: " + e);
 				System.out.print("Try again: ");
 			}
+			
 		} while (cross == 0);
 		return str;
 	}
@@ -87,7 +89,6 @@ public class TestFlightManager {
 				broj = input.nextInt();
 				cross = 1;
 			} catch (Exception e) {
-				input.nextLine();
 				System.out.println("Error: " + e);
 				System.out.print("Try again: ");
 			}

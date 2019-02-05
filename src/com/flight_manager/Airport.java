@@ -28,9 +28,9 @@ public class Airport extends CommonMethods {
 
 	@Override
 	public boolean checkNameLength(String name) {
-		if (name.length() > 3) {
+		if (name.length() != 3) {
 			return false;
-		} else if (name.length() == 0) {
+		} else if (name.length() == 1) {
 			return false;
 		}
 		return true;

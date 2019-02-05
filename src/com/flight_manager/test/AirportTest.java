@@ -23,7 +23,7 @@ public class AirportTest {
 	}
 
 	@Test
-	public void shouldReturnTrueIfNameHasLessThan4Letters() {
+	public void shouldReturnTrueIfNameHas3Letters() {
 		boolean valid = airport.checkNameLength(str);
 		assertTrue(valid);
 	}
