@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Flight {
 	//unique ID
-	private Integer id;
+	private int id;
 	
 	//which airline owns this flight
 	private Airline airline;
@@ -23,6 +23,14 @@ public class Flight {
 	
 	public Flight() {
 		
+	}
+	public Flight(int id,Airline line,Airport port,String origin,String destination,ArrayList<Seat> seats) {
+		this.airline=line;
+		this.airport=port;
+		this.origin=origin;
+		this.destination=destination;
+		this.id=id;
+		this.seats=seats;
 	}
 
 	public Integer getId() {
@@ -78,6 +86,7 @@ public class Flight {
 		return "Flight [id=" + id + ", airline=" + airline + ", seats=" + seats + ", origin=" + origin
 				+ ", destination=" + destination + "]";
 	}
+	
 	
 	
 

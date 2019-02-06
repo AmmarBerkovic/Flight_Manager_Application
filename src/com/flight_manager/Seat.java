@@ -5,13 +5,18 @@ public class Seat {
 	private String row;
 	
 	// seat number ex. 1,5,16
-	private Integer seatNumber;
+	private int seatNumber;
 	
 	//is it booked, or it is available
 	private boolean available;
 	
 	public Seat() {
 		
+	}
+	public Seat(String row,int seatNo,boolean valid) {
+		this.available=valid;
+		this.row=row;
+		this.seatNumber=seatNo;
 	}
 	
 	public String getRow() {
@@ -20,7 +25,7 @@ public class Seat {
 	public void setRow(String row) {
 		this.row = row;
 	}
-	public Integer getSeatNumber() {
+	public int getSeatNumber() {
 		return seatNumber;
 	}
 	public void setSeatNumber(Integer seatNumber) {

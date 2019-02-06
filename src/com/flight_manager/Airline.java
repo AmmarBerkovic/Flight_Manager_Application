@@ -6,6 +6,10 @@ public class Airline extends CommonMethods {
 
 	private String name;
 
+	public Airline() {
+		
+	}
+	
 	public Airline(String name) {
 		this.name = name;
 	}
