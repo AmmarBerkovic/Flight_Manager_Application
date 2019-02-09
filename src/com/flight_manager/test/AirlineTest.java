@@ -14,31 +14,35 @@ public class AirlineTest {
 	private Airline airline;
 	private boolean valid;
 	private String str;
-	private ArrayList<Airline> list=new ArrayList<Airline>();
+	private ArrayList<Airline> list = new ArrayList<Airline>();
+
 	@Before
 	public void setUp() {
 		airline = new Airline("Fly");
 		valid = false;
-		str="air";
+		str = "air";
 	}
+
 	@Test
 	public void shouldReturnFalseIfNameHasMoreThan6Letters() {
-		str="airline";
+		str = "airline";
 		valid = airline.checkNameLength(str);
 		assertFalse(valid);
 	}
+
 	@Test
 	public void shouldReturnTrueIfNameHasLessThan6Letters() {
 		valid = airline.checkNameLength(str);
 		assertTrue(valid);
 	}
-	
+
 	@Test
 	public void sholudReturnFalseIfNamesLengthIsZero() {
-		str="";
+		str = "";
 		valid = airline.checkNameLength(str);
 		assertFalse(valid);
 	}
+
 	@Test
 	public void shouldReturnTrueIfNameContainsOnlyLetter() {
 		valid = airline.checkIfNameHasOnlyLetters(str);
@@ -47,20 +51,22 @@ public class AirlineTest {
 
 	@Test
 	public void shouldReturnFalseIfNameDoesNotContainsOnlyLetter() {
-		str="43Zla";
+		str = "43Zla";
 		valid = airline.checkIfNameHasOnlyLetters(str);
 		assertFalse(valid);
 	}
+
 	@Test
 	public void sholudReturnTrueIfNameDoesNotExists() {
 		list.add(airline);
 		valid = airline.checkNameExistence(list, str);
 		assertTrue(valid);
 	}
+
 	@Test
 	public void sholudReturnFalseIfNameExists() {
 		list.add(airline);
-		str="Fly";
+		str = "Fly";
 		valid = airline.checkNameExistence(list, str);
 		assertFalse(valid);
 	}

@@ -5,35 +5,47 @@ import java.util.List;
 
 public class SystemManager {
 	static SystemManager sm = new SystemManager();
-	private ArrayList<Airport> listOfAirports=new ArrayList<Airport>();
-	private ArrayList<Flight> listOfFlights=new ArrayList<Flight>();
-	private ArrayList<Airline> listOfAirlines=new ArrayList<Airline>();
+	private ArrayList<Airport> listOfAirports = new ArrayList<Airport>();
+	private ArrayList<Flight> listOfFlights = new ArrayList<Flight>();
+	private ArrayList<Airline> listOfAirlines = new ArrayList<Airline>();
 
 	public SystemManager() {
 
 	}
 
-	public void createAirport(ArrayList <Airport>list,String name) {
+	public void createAirport(ArrayList<Airport> list, String name) {
 		list.add(new Airport(name));
 	}
-	public void createAirline(ArrayList <Airline>list,String name) {
+
+	public void createAirline(ArrayList<Airline> list, String name) {
 		list.add(new Airline(name));
 	}
-	public void createFlight(ArrayList <Flight>list,Airport port,Airline line , String origin, String destination) {
-		list.add(new Flight(rnd(),line,port,origin,destination,seats()));
+
+	public void createFlight(ArrayList<Flight> list, Airport port, Airline line, String origin, String destination) {
+		list.add(new Flight(rnd(sm.getListOfFlights()), line, port, origin, destination, seats()));
 	}
 
-	public void createSeats(String airline, int flightID, int numberOfSeatsPerRow) {
-		// TODO implement
+	public ArrayList<Flight> findAvailableFlights(ArrayList<Flight> list, String origin, String destination) {
+		ArrayList<Flight> availableFlights = new ArrayList<Flight>();
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getOrigin().equals(origin)) {
+				availableFlights.add(list.get(i));
+			}
+		}
+		return availableFlights;
 	}
 
-	public List<Flight> findAvailableFlights(String origin, String destination) {
-		// TODO implement
-		return null;
+	public String listTheList(ArrayList<Flight> list) {
+		String text = "";
+		for (int i = 0; i < list.size(); i++) {
+			text = text + i + " - ID: " + list.get(i).getId() + ", " + list.get(i).getAirline() + ", "
+					+ list.get(i).getAirport() + "\n";
+		}
+		return text;
 	}
 
-	public boolean bookSeat(String airline, String flightName, int seatNumber, String row) {
-		// TODO implement
+	public boolean bookSeat(String airline, String airport, int seatNumber, String row) {
+		
 		return false;
 	}
 
@@ -48,34 +60,36 @@ public class SystemManager {
 	public ArrayList<Airline> getListOfAirlines() {
 		return listOfAirlines;
 	}
-	public int rnd() {
-		int no=(int)(Math.random()*10000+1);
-		for (int i = 0; i < listOfFlights.size(); i++) {
-			if(no==listOfFlights.get(i).getId()) {
-				i=0;
-				no=(int)(Math.random()*10000+1);
+
+	public int rnd(ArrayList<Flight> list) {
+		int no = (int) (Math.random() * 10000 + 1);
+		for (int i = 0; i < list.size(); i++) {
+			if (no == list.get(i).getId()) {
+				i = 0;
+				no = (int) (Math.random() * 10000 + 1);
 			}
 		}
 		return no;
 	}
-	public ArrayList <Seat> seats() {
-		String row="";
-		ArrayList<Seat> seat = new ArrayList <Seat>();
+
+	public ArrayList<Seat> seats() {
+		String row = "";
+		ArrayList<Seat> seat = new ArrayList<Seat>();
 		for (int i = 0; i < 6; i++) {
-			if(i==0) 
-				row="A";
-			else if(i==1)
-				row="B";
-			else if(i==2)
-				row="C";
-			else if(i==3)
-				row="D";
-			else if(i==4)
-				row="E";
-			else if(i==5)
-				row="F";
+			if (i == 0)
+				row = "A";
+			else if (i == 1)
+				row = "B";
+			else if (i == 2)
+				row = "C";
+			else if (i == 3)
+				row = "D";
+			else if (i == 4)
+				row = "E";
+			else if (i == 5)
+				row = "F";
 			for (int j = 0; j < 15; j++) {
-				seat.add(new Seat(row,j,false));
+				seat.add(new Seat(row, j, false));
 			}
 		}
 		return seat;

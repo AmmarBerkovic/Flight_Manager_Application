@@ -12,14 +12,14 @@ import com.flight_manager.Airport;
 public class AirportTest {
 	private Airport airport;
 	private boolean valid;
-	private String str="";
-	private ArrayList<Airport> list=new ArrayList<Airport>();
+	private String str = "";
+	private ArrayList<Airport> list = new ArrayList<Airport>();
 
 	@Before
 	public void setUp() {
 		airport = new Airport("Fly");
 		valid = false;
-		str="air";
+		str = "air";
 	}
 
 	@Test
@@ -30,14 +30,7 @@ public class AirportTest {
 
 	@Test
 	public void shouldReturnFalseIfNameHasMoreThan3Letters() {
-		str="airport";
-		valid = airport.checkNameLength(str);
-		assertFalse(valid);
-	}
-
-	@Test
-	public void shouldReturnFalseIfNameHasNoLetters() {
-		str="";
+		str = "airport";
 		valid = airport.checkNameLength(str);
 		assertFalse(valid);
 	}
@@ -50,23 +43,24 @@ public class AirportTest {
 
 	@Test
 	public void shouldReturnFalseIfNameDoesNotContainsOnlyLetter() {
-		str="43Zla";
+		str = "43Zla";
 		valid = airport.checkIfNameHasOnlyLetters(str);
 		assertFalse(valid);
 	}
+
 	@Test
 	public void sholudReturnTrueIfNameDoesNotExists() {
 		list.add(airport);
 		valid = airport.checkNameExistence(list, str);
 		assertTrue(valid);
 	}
+
 	@Test
 	public void sholudReturnFalseIfNameExists() {
 		list.add(airport);
-		str="Fly";
+		str = "Fly";
 		valid = airport.checkNameExistence(list, str);
 		assertFalse(valid);
 	}
-	
 
 }
