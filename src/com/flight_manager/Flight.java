@@ -94,21 +94,21 @@ public class Flight {
 			if (i != 0)
 				System.out.println();
 			for (int j = 0; j < fly.seats.size(); j++) {
-				if (fly.seats.get(j).getRow().equals("A")) {
+				if(i==0)
+					row="A";
+				if(i==1)
+					row="B";
+				if(i==2)
+					row="C";
+				if(i==3)
+					row="D";
+				if(i==4)
+					row="E";
+				if(i==5)
+					row="F";
+				if (fly.seats.get(j).getRow().equals(row)) {
 					if(fly.seats.get(j).isAvailable()==false){
-						if(i==0)
-							row="A= ";
-						if(i==1)
-							row="B= ";
-						if(i==2)
-							row="C= ";
-						if(i==3)
-							row="D= ";
-						if(i==4)
-							row="E= ";
-						if(i==5)
-							row="F= ";
-						System.out.print(row+fly.seats.get(j).getSeatNumber() + " ");
+						System.out.print(row+"= "+fly.seats.get(j).getSeatNumber() + " ");
 					}
 				}
 			}
