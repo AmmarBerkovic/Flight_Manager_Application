@@ -17,8 +17,8 @@ public class TestFlightManager {
 	private static void menu() {
 		String name;
 		System.out.print(print(0) + "\n" + print(4));
-		int izbor = ScanInt();
-		switch (izbor) {
+		int choice = ScanInt();
+		switch (choice) {
 		case 1:
 			System.out.print("Set name of Airport: ");
 			name = ScanStr();
@@ -167,11 +167,7 @@ public class TestFlightManager {
 				text = text + i + " - " + sm.getListOfAirlines().get(i).getName();
 			}
 		}
-		if (decision == 9) {
-			for (int i = 0; i < sm.getListOfFlights().size(); i++) {
-				text = text + i + " - " + sm.getListOfAirlines().get(i).getName();
-			}
-		}
+		
 
 		return text;
 	}
