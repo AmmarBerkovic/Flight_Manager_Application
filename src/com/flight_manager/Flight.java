@@ -89,7 +89,6 @@ public class Flight {
 	}
 
 	public String availableSeats(Flight fly) {
-		System.out.println("start");
 		String back = "", row="";
 		for (int i = 0; i < 6; i++) {
 			if (i != 0)

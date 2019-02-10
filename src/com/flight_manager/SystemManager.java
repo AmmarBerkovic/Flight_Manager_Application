@@ -38,8 +38,8 @@ public class SystemManager {
 	public String listTheList(ArrayList<Flight> list) {
 		String text = "";
 		for (int i = 0; i < list.size(); i++) {
-			text = text + i + " - ID: " + list.get(i).getId() + ", " + list.get(i).getAirline() + ", "
-					+ list.get(i).getAirport() + "\n";
+			text = text + "ID: " + list.get(i).getId() + ", " + list.get(i).getAirline().getName() + ", "
+					+ list.get(i).getAirport().getName() + "\n";
 		}
 		return text;
 	}
