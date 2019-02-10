@@ -44,9 +44,5 @@ public class Seat {
 		this.available = available;
 	}
 
-	@Override
-	public String toString() {
-		return "Seat [row=" + row + ", seatNumber=" + seatNumber + ", available=" + available + "]";
-	}
 
 }

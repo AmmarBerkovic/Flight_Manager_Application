@@ -21,8 +21,8 @@ public class SystemManager {
 		list.add(new Airline(name));
 	}
 
-	public void createFlight(ArrayList<Flight> list, Airport port, Airline line, String origin, String destination) {
-		list.add(new Flight(rnd(sm.getListOfFlights()), line, port, origin, destination, seats()));
+	public void createFlight(ArrayList<Flight> list, Airport port, Airline line, String origin, String destination,int rnd) {
+		list.add(new Flight(rnd, line, port, origin, destination, seats()));
 	}
 
 	public ArrayList<Flight> findAvailableFlights(ArrayList<Flight> list, String origin, String destination) {
@@ -63,6 +63,9 @@ public class SystemManager {
 
 	public int rnd(ArrayList<Flight> list) {
 		int no = (int) (Math.random() * 10000 + 1);
+		if(list.size()==0) {
+			return no;
+		}
 		for (int i = 0; i < list.size(); i++) {
 			if (no == list.get(i).getId()) {
 				i = 0;

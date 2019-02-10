@@ -76,7 +76,7 @@ public class TestFlightManager {
 			menu();
 			break;
 		case 3:
-			int port, line;
+			int port, line,rnd;
 			String destination, origin;
 			System.out.println("Pick airport: ");
 			System.out.print(print(7) + "\n" + print(4));
@@ -88,14 +88,15 @@ public class TestFlightManager {
 			destination = ScanStr();
 			System.out.print("Enter origin: ");
 			origin = ScanStr();
+			rnd=sm.rnd(sm.getListOfFlights());
 			sm.createFlight(sm.getListOfFlights(), sm.getListOfAirports().get(port), sm.getListOfAirlines().get(line),
-					origin, destination);
-			
+					origin, destination,rnd);
+
 			System.out.println(print(1));
 			menu();
 			break;
 		case 4:
-			Flight temp=null;
+			Flight temp = null;
 			System.out.print("Enter destination: ");
 			String dest, org;
 			dest = ScanStr();
@@ -108,19 +109,19 @@ public class TestFlightManager {
 			id = ScanInt();
 			System.out.println("Pick seat: ");
 			for (int i = 0; i < sm.getListOfFlights().size(); i++) {
-				if(sm.getListOfFlights().get(i).getId()==id) {
-					temp=sm.getListOfFlights().get(i);
+				if (sm.getListOfFlights().get(i).getId() == id) {
+					temp = sm.getListOfFlights().get(i);
 					System.out.println(fly.availableSeats(sm.getListOfFlights().get(i)));
 				}
 			}
 			System.out.println("Enter row: ");
 			String row;
-			row=ScanStr();
+			row = ScanStr();
 			System.out.println("Enter number:");
 			int no;
-			no=ScanInt();
+			no = ScanInt();
 			for (int i = 0; i < temp.getSeats().size(); i++) {
-				if(temp.getSeats().get(i).getRow().equals(row) && temp.getSeats().get(i).getSeatNumber()==no) {
+				if (temp.getSeats().get(i).getRow().equals(row) && temp.getSeats().get(i).getSeatNumber() == no) {
 					temp.getSeats().get(i).setAvailable(true);
 					System.out.println(print(1));
 				}
@@ -167,7 +168,6 @@ public class TestFlightManager {
 				text = text + i + " - " + sm.getListOfAirlines().get(i).getName();
 			}
 		}
-		
 
 		return text;
 	}

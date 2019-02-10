@@ -2,15 +2,19 @@ package com.flight_manager.test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import com.flight_manager.Airport;
 import com.flight_manager.SystemManager;
 import com.flight_manager.TestFlightManager;
 
 public class TestFlightManagerTest {
 	private String str;
 	static SystemManager sm = new SystemManager();
+	private ArrayList<Airport> listOfAirport = new ArrayList<Airport>();
 	@Before
 	public void setUp() {
 		str = "Testing";
@@ -67,5 +71,6 @@ public class TestFlightManagerTest {
 	public void shouldReturnEnteredNumber() {
 		assertEquals(1,TestFlightManager.ScanInt());
 	}
+	
 
 }
