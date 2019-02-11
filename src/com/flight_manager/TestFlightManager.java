@@ -100,7 +100,7 @@ public class TestFlightManager {
 			System.out.print("Enter destination: ");
 			String dest, org;
 			dest = ScanStr();
-			System.out.println("Enter origin: ");
+			System.out.print("Enter origin: ");
 			org = ScanStr();
 			System.out.println("Enter ID of the flight: ");
 			int id;
@@ -160,7 +160,7 @@ public class TestFlightManager {
 
 		if (decision == 7) {
 			for (int i = 0; i < sm.getListOfAirports().size(); i++) {
-				text = text + i + " - " + sm.getListOfAirports().get(i).getName();
+				text = text + i + " - " + sm.getListOfAirports().get(i).getName()+"\n";
 			}
 		}
 		if (decision == 8) {
@@ -180,7 +180,7 @@ public class TestFlightManager {
 				str = input.next();
 				cross = 1;
 			} catch (Exception e) {
-				System.out.println("Error: " + e);
+				System.out.println(print(6)+"Error: " + e + "\n");
 				System.out.print("Try again: ");
 			}
 
@@ -196,7 +196,7 @@ public class TestFlightManager {
 				cross = 1;
 			} catch (Exception e) {
 				input.next();
-				System.out.println("Error: " + e);
+				System.out.println(print(6)+"\nError: " + e +"\n"+ print(6));
 				System.out.print("Try again: ");
 			}
 		} while (cross == 0);

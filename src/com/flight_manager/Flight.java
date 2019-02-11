@@ -82,33 +82,29 @@ public class Flight {
 		this.airport = airport;
 	}
 
-	@Override
-	public String toString() {
-		return "Flight [id=" + id + ", airline=" + airline + ", seats=" + seats + ", origin=" + origin
-				+ ", destination=" + destination + "]";
-	}
 
 	public String availableSeats(Flight fly) {
 		String back = "", row="";
 		for (int i = 0; i < 6; i++) {
 			if (i != 0)
 				System.out.println();
+			if(i==0)
+				row="A";
+			if(i==1)
+				row="B";
+			if(i==2)
+				row="C";
+			if(i==3)
+				row="D";
+			if(i==4)
+				row="E";
+			if(i==5)
+				row="F";
+			System.out.print(row+"= ");
 			for (int j = 0; j < fly.seats.size(); j++) {
-				if(i==0)
-					row="A";
-				if(i==1)
-					row="B";
-				if(i==2)
-					row="C";
-				if(i==3)
-					row="D";
-				if(i==4)
-					row="E";
-				if(i==5)
-					row="F";
 				if (fly.seats.get(j).getRow().equals(row)) {
 					if(fly.seats.get(j).isAvailable()==false){
-						System.out.print(row+"= "+fly.seats.get(j).getSeatNumber() + " ");
+						System.out.print(fly.seats.get(j).getSeatNumber() + ", ");
 					}
 				}
 			}
