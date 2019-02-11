@@ -76,7 +76,7 @@ public class TestFlightManager {
 			menu();
 			break;
 		case 3:
-			int port, line,rnd;
+			int port, line, rnd;
 			String destination, origin;
 			System.out.println("Pick airport: ");
 			System.out.print(print(7) + "\n" + print(4));
@@ -88,9 +88,9 @@ public class TestFlightManager {
 			destination = ScanStr();
 			System.out.print("Enter origin: ");
 			origin = ScanStr();
-			rnd=sm.rnd(sm.getListOfFlights());
+			rnd = sm.rnd(sm.getListOfFlights());
 			sm.createFlight(sm.getListOfFlights(), sm.getListOfAirports().get(port), sm.getListOfAirlines().get(line),
-					origin, destination,rnd);
+					origin, destination, rnd);
 
 			System.out.println(print(1));
 			menu();
@@ -114,10 +114,10 @@ public class TestFlightManager {
 					System.out.println(fly.availableSeats(sm.getListOfFlights().get(i)));
 				}
 			}
-			System.out.println("Enter row: ");
+			System.out.print("Enter row: ");
 			String row;
 			row = ScanStr();
-			System.out.println("Enter number:");
+			System.out.print("Enter number:");
 			int no;
 			no = ScanInt();
 			for (int i = 0; i < temp.getSeats().size(); i++) {
@@ -160,7 +160,7 @@ public class TestFlightManager {
 
 		if (decision == 7) {
 			for (int i = 0; i < sm.getListOfAirports().size(); i++) {
-				text = text + i + " - " + sm.getListOfAirports().get(i).getName()+"\n";
+				text = text + i + " - " + sm.getListOfAirports().get(i).getName() + "\n";
 			}
 		}
 		if (decision == 8) {
@@ -180,7 +180,7 @@ public class TestFlightManager {
 				str = input.next();
 				cross = 1;
 			} catch (Exception e) {
-				System.out.println(print(6)+"Error: " + e + "\n");
+				System.out.println(print(6) + "Error: " + e + "\n");
 				System.out.print("Try again: ");
 			}
 
@@ -195,8 +195,7 @@ public class TestFlightManager {
 				broj = input.nextInt();
 				cross = 1;
 			} catch (Exception e) {
-				input.next();
-				System.out.println(print(6)+"\nError: " + e +"\n"+ print(6));
+				System.out.println(print(6) + "\nError: " + e + "\n" + print(6));
 				System.out.print("Try again: ");
 			}
 		} while (cross == 0);

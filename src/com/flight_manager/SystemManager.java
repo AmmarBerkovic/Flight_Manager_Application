@@ -21,7 +21,8 @@ public class SystemManager {
 		list.add(new Airline(name));
 	}
 
-	public void createFlight(ArrayList<Flight> list, Airport port, Airline line, String origin, String destination,int rnd) {
+	public void createFlight(ArrayList<Flight> list, Airport port, Airline line, String origin, String destination,
+			int rnd) {
 		list.add(new Flight(rnd, line, port, origin, destination, seats()));
 	}
 
@@ -44,11 +45,6 @@ public class SystemManager {
 		return text;
 	}
 
-	public boolean bookSeat(String airline, String airport, int seatNumber, String row) {
-		
-		return false;
-	}
-
 	public ArrayList<Airport> getListOfAirports() {
 		return listOfAirports;
 	}
@@ -63,7 +59,7 @@ public class SystemManager {
 
 	public int rnd(ArrayList<Flight> list) {
 		int no = (int) (Math.random() * 10000 + 1);
-		if(list.size()==0) {
+		if (list.size() == 0) {
 			return no;
 		}
 		for (int i = 0; i < list.size(); i++) {

@@ -27,6 +27,7 @@ public class SystemManagerTest {
 		port=new Airport("amm");
 		dest="Amsterdam";
 		org="Tuzla";
+		rnd=sm.rnd(listOfFlights);
 	}
 
 	@Test
@@ -43,33 +44,51 @@ public class SystemManagerTest {
 	}
 	@Test
 	public void sholudAddNewFormedFlightInListPt1() {
-		rnd=sm.rnd(listOfFlights);
 		sm.createFlight(listOfFlights, port, line, org, dest,rnd);
 		assertEquals(rnd, listOfFlights.get(0).getId());
 	}
 	@Test
 	public void sholudAddNewFormedFlightInListPt2() {
-		rnd=sm.rnd(listOfFlights);
 		sm.createFlight(listOfFlights, port, line, org, dest,rnd);
 		assertEquals(port, listOfFlights.get(0).getAirport());
 	}
 	@Test
 	public void sholudAddNewFormedFlightInListPt3() {
-		rnd=sm.rnd(listOfFlights);
 		sm.createFlight(listOfFlights, port, line, org, dest,rnd);
 		assertEquals(line, listOfFlights.get(0).getAirline());
 	}
 	@Test
 	public void sholudAddNewFormedFlightInListPt4() {
-		rnd=sm.rnd(listOfFlights);
 		sm.createFlight(listOfFlights, port, line, org, dest,rnd);
 		assertEquals(dest, listOfFlights.get(0).getDestination());
 	}
 	@Test
 	public void sholudAddNewFormedFlightInListPt5() {
-		rnd=sm.rnd(listOfFlights);
 		sm.createFlight(listOfFlights, port, line, org, dest,rnd);
 		assertEquals(org, listOfFlights.get(0).getOrigin());
 	}
-
+	@Test
+	public void sholudReturnTrueIfIdDoesNotExistsInList() {
+		sm.createFlight(listOfFlights, port, line, org, dest,rnd);
+		rnd=sm.rnd(listOfFlights);
+		assertTrue(rnd!=listOfFlights.get(0).getId());
+	}
+	@Test
+	public void sholudReturnAllFlightsWithSpecificDestinationAndOrigin1() {
+		sm.createFlight(listOfFlights, port, line, org, dest, rnd);
+		ArrayList<Flight> free=sm.findAvailableFlights(listOfFlights, org, dest);
+		assertEquals(org, free.get(0).getOrigin());
+	}
+	@Test
+	public void sholudReturnAllFlightsWithSpecificDestinationAndOrigin2() {
+		sm.createFlight(listOfFlights, port, line, org, dest, rnd);
+		ArrayList<Flight> free=sm.findAvailableFlights(listOfFlights, org, dest);
+		assertEquals(dest, free.get(0).getDestination());
+	}
+	@Test
+	public void sholudReturnSpecificTextAboutFlightsDetails() {
+		sm.createFlight(listOfFlights, port, line, org, dest, rnd);
+		str=sm.listTheList(listOfFlights);
+		assertEquals("ID: "+listOfFlights.get(0).getId()+", amm, amm"+"\n", str);
+	}
 }

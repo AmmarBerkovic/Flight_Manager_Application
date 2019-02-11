@@ -82,28 +82,27 @@ public class Flight {
 		this.airport = airport;
 	}
 
-
 	public String availableSeats(Flight fly) {
-		String back = "", row="";
+		String back = "", row = "";
 		for (int i = 0; i < 6; i++) {
 			if (i != 0)
 				System.out.println();
-			if(i==0)
-				row="A";
-			if(i==1)
-				row="B";
-			if(i==2)
-				row="C";
-			if(i==3)
-				row="D";
-			if(i==4)
-				row="E";
-			if(i==5)
-				row="F";
-			System.out.print(row+"= ");
+			if (i == 0)
+				row = "A";
+			if (i == 1)
+				row = "B";
+			if (i == 2)
+				row = "C";
+			if (i == 3)
+				row = "D";
+			if (i == 4)
+				row = "E";
+			if (i == 5)
+				row = "F";
+			System.out.print(row + "= ");
 			for (int j = 0; j < fly.seats.size(); j++) {
 				if (fly.seats.get(j).getRow().equals(row)) {
-					if(fly.seats.get(j).isAvailable()==false){
+					if (fly.seats.get(j).isAvailable() == false) {
 						System.out.print(fly.seats.get(j).getSeatNumber() + ", ");
 					}
 				}

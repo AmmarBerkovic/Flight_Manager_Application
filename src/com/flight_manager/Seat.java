@@ -44,5 +44,4 @@ public class Seat {
 		this.available = available;
 	}
 
-
 }
