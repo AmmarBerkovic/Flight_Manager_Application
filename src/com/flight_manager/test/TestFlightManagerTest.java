@@ -63,11 +63,6 @@ public class TestFlightManagerTest {
 		assertEquals("============================", str);
 	}
 	@Test
-	public void shouldReturnEnteredMassage() {
-		str = TestFlightManager.ScanStr();
-		assertEquals("test",str);
-	}
-	@Test
 	public void shouldReturnEnteredNumber() {
 		assertEquals(1,TestFlightManager.ScanInt());
 	}

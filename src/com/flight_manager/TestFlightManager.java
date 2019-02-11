@@ -21,7 +21,7 @@ public class TestFlightManager {
 		switch (choice) {
 		case 1:
 			System.out.print("Set name of Airport: ");
-			name = ScanStr();
+			name = input.next();
 			boolean[] checks = { false, false, false };
 			while (checks[0] == false || checks[1] == false || checks[2] == false) {
 				checks[0] = false;
@@ -41,7 +41,7 @@ public class TestFlightManager {
 					System.out.println(print(5));
 				if (checks[0] == false || checks[1] == false || checks[2] == false)
 					System.out.print("Try again: ");
-				name = ScanStr();
+				name = input.next();
 			}
 			sm.createAirport(sm.getListOfAirports(), name);
 			System.out.println(print(1));
@@ -49,7 +49,7 @@ public class TestFlightManager {
 			break;
 		case 2:
 			System.out.print("Set name of Airline: ");
-			name = ScanStr();
+			name = input.next();
 			boolean[] check = { false, false, false };
 			while (check[0] == false || check[1] == false || check[2] == false) {
 				check[0] = false;
@@ -69,7 +69,7 @@ public class TestFlightManager {
 					System.out.println(print(5));
 				if (check[0] == false || check[1] == false || check[2] == false)
 					System.out.print("Try again: ");
-				name = ScanStr();
+				name = input.next();
 			}
 			sm.createAirline(sm.getListOfAirlines(), name);
 			System.out.println(print(1));
@@ -85,9 +85,9 @@ public class TestFlightManager {
 			System.out.print(print(8) + "\n" + print(4));
 			line = ScanInt();
 			System.out.print("Enter destination: ");
-			destination = ScanStr();
+			destination = input.next();
 			System.out.print("Enter origin: ");
-			origin = ScanStr();
+			origin = input.next();
 			rnd = sm.rnd(sm.getListOfFlights());
 			sm.createFlight(sm.getListOfFlights(), sm.getListOfAirports().get(port), sm.getListOfAirlines().get(line),
 					origin, destination, rnd);
@@ -99,9 +99,9 @@ public class TestFlightManager {
 			Flight temp = null;
 			System.out.print("Enter destination: ");
 			String dest, org;
-			dest = ScanStr();
+			dest = input.next();
 			System.out.print("Enter origin: ");
-			org = ScanStr();
+			org = input.next();
 			System.out.println("Enter ID of the flight: ");
 			int id;
 			System.out.println(
@@ -116,7 +116,7 @@ public class TestFlightManager {
 			}
 			System.out.print("Enter row: ");
 			String row;
-			row = ScanStr();
+			row = input.next();
 			System.out.print("Enter number:");
 			int no;
 			no = ScanInt();
@@ -170,22 +170,6 @@ public class TestFlightManager {
 		}
 
 		return text;
-	}
-
-	public static String ScanStr() {
-		int cross = 0;
-		String str = null;
-		do {
-			try {
-				str = input.next();
-				cross = 1;
-			} catch (Exception e) {
-				System.out.println(print(6) + "Error: " + e + "\n");
-				System.out.print("Try again: ");
-			}
-
-		} while (cross == 0);
-		return str;
 	}
 
 	public static int ScanInt() {
