@@ -39,10 +39,12 @@ public class TestFlightManager {
 					checks[2] = true;
 				else
 					System.out.println(print(5));
-				if (checks[0] == false || checks[1] == false || checks[2] == false)
+				if (checks[0] == false || checks[1] == false || checks[2] == false) {
 					System.out.print("Try again: ");
-				name = input.next();
+					name = input.next();
+				}
 			}
+
 			sm.createAirport(sm.getListOfAirports(), name);
 			System.out.println(print(1));
 			menu();
@@ -67,9 +69,10 @@ public class TestFlightManager {
 					check[2] = true;
 				else
 					System.out.println(print(5));
-				if (check[0] == false || check[1] == false || check[2] == false)
+				if (check[0] == false || check[1] == false || check[2] == false) {
 					System.out.print("Try again: ");
-				name = input.next();
+					name = input.next();
+				}
 			}
 			sm.createAirline(sm.getListOfAirlines(), name);
 			System.out.println(print(1));

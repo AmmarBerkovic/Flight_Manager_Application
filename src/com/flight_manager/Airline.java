@@ -13,7 +13,7 @@ public class Airline extends CommonMethods {
 	public Airline(String name) {
 		this.name = name;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -27,7 +27,7 @@ public class Airline extends CommonMethods {
 		}
 		return true;
 	}
-
+	
 	@Override
 	public boolean checkIfNameHasOnlyLetters(String name) {
 		for (int i = 0; i < name.length(); i++) {
@@ -37,7 +37,7 @@ public class Airline extends CommonMethods {
 		}
 		return true;
 	}
-
+	
 	public boolean checkNameExistence(ArrayList<Airline> list, String name) {
 		for (int i = 0; i < list.size(); i++) {
 			if (name.equals(list.get(i).getName())) {
