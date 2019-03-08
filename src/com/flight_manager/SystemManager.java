@@ -13,11 +13,11 @@ public class SystemManager {
 
 	}
 
-	public void createAirport(ArrayList<Airport> list, String name) {
+	public static void createAirport(ArrayList<Airport> list, String name) {
 		list.add(new Airport(name));
 	}
 
-	public void createAirline(ArrayList<Airline> list, String name) {
+	public static void createAirline(ArrayList<Airline> list, String name) {
 		list.add(new Airline(name));
 	}
 
@@ -39,7 +39,7 @@ public class SystemManager {
 	public String listTheList(ArrayList<Flight> list) {
 		String text = "";
 		for (int i = 0; i < list.size(); i++) {
-			text = text + "ID: " + list.get(i).getId() + ", " + list.get(i).getAirline().getName() + ", "
+			text = text + "ID: " + list.get(i).getId() + ", Airline: " + list.get(i).getAirline().getName() + ", Airport: "
 					+ list.get(i).getAirport().getName() + "\n";
 		}
 		return text;
