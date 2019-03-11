@@ -39,11 +39,13 @@ public class TestFlightManager {
 					checks[2] = true;
 				else
 					System.out.println(print(5));
-				if (checks[0] == false || checks[1] == false || checks[2] == false)
+				if (checks[0] == false || checks[1] == false || checks[2] == false) {
 					System.out.print("Try again: ");
-				name = input.next();
+					name = input.next();
+				}
 			}
-			sm.createAirport(sm.getListOfAirports(), name);
+
+			SystemManager.createAirport(sm.getListOfAirports(), name);
 			System.out.println(print(1));
 			menu();
 			break;
@@ -67,11 +69,12 @@ public class TestFlightManager {
 					check[2] = true;
 				else
 					System.out.println(print(5));
-				if (check[0] == false || check[1] == false || check[2] == false)
+				if (check[0] == false || check[1] == false || check[2] == false) {
 					System.out.print("Try again: ");
-				name = input.next();
+					name = input.next();
+				}
 			}
-			sm.createAirline(sm.getListOfAirlines(), name);
+			SystemManager.createAirline(sm.getListOfAirlines(), name);
 			System.out.println(print(1));
 			menu();
 			break;
@@ -143,7 +146,7 @@ public class TestFlightManager {
 		String text = "";
 		if (decision == 0)
 			text = print(6)
-					+ "\n1 - Create Airport\n2 - Create Airline\n3 - Create flight\n4 - Book a seat on a flight\n5 - Izlaz\n"
+					+ "\n1 - Create Airport\n2 - Create Airline\n3 - Create flight\n4 - Book a seat on a flight\n5 - Exit\n"
 					+ print(6);
 		if (decision == 1)
 			text = print(6) + "\nA successful action!";
@@ -165,7 +168,7 @@ public class TestFlightManager {
 		}
 		if (decision == 8) {
 			for (int i = 0; i < sm.getListOfAirlines().size(); i++) {
-				text = text + i + " - " + sm.getListOfAirlines().get(i).getName();
+				text = text + i + " - " + sm.getListOfAirlines().get(i).getName() + "\n";
 			}
 		}
 
