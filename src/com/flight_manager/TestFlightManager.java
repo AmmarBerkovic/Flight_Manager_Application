@@ -147,7 +147,7 @@ public class TestFlightManager {
 		String text = "";
 		if (decision == 0)
 			text = print(6)
-					+ "\n1 - Create Airport\n2 - Create Airline\n3 - Create flight\n4 - Book a seat on a flight\n5 - Exit\n"
+					+ "\n1 - Create Airport\n2 - Create Airline\n3 - Create flight\n4 - Book a seat on a flight\n5 - Izlaz\n"
 					+ print(6);
 		if (decision == 1)
 			text = print(6) + "\nA successful action!";

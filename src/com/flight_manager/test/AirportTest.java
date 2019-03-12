@@ -10,6 +10,7 @@ import org.junit.Test;
 import com.flight_manager.Airport;
 
 public class AirportTest {
+
 	private Airport airport;
 	private boolean valid;
 	private String str = "";

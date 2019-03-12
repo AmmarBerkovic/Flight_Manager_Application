@@ -89,6 +89,6 @@ public class SystemManagerTest {
 	public void sholudReturnSpecificTextAboutFlightsDetails() {
 		sm.createFlight(listOfFlights, port, line, org, dest, rnd);
 		str=sm.listTheList(listOfFlights);
-		assertEquals("ID: "+listOfFlights.get(0).getId()+", amm, amm"+"\n", str);
+		assertEquals("ID: "+listOfFlights.get(0).getId()+", Airline: amm, Airport: amm"+"\n", str);
 	}
 }
