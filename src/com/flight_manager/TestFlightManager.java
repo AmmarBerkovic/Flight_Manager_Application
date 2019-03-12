@@ -183,6 +183,7 @@ public class TestFlightManager {
 				broj = input.nextInt();
 				cross = 1;
 			} catch (Exception e) {
+				input.next();
 				System.out.println(print(6) + "\nError: " + e + "\n" + print(6));
 				System.out.print("Try again: ");
 			}
