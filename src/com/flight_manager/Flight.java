@@ -82,7 +82,7 @@ public class Flight {
 		this.airport = airport;
 	}
 
-	public String availableSeats(Flight fly) {
+	public static String availableSeats(Flight fly) {
 		String back = "", row = "";
 		for (int i = 0; i < 6; i++) {
 			if (i != 0)

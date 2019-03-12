@@ -10,9 +10,6 @@ public class Seat {
 	// is it booked, or it is available
 	private boolean available;
 
-	public Seat() {
-
-	}
 
 	public Seat(String row, int seatNo, boolean valid) {
 		this.available = valid;

@@ -4,14 +4,11 @@ import java.util.Scanner;
 
 public class TestFlightManager {
 	private static Scanner input = new Scanner(System.in);
-	static SystemManager sm = new SystemManager();
 	static Airport port = new Airport();
 	static Airline line = new Airline();
-	static Flight fly = new Flight();
 
 	public static void main(String[] args) {
 		menu();
-		
 
 	}
 
@@ -36,7 +33,7 @@ public class TestFlightManager {
 					checks[1] = true;
 				else
 					System.out.println(print(3));
-				if (port.checkNameExistence(sm.getListOfAirports(), name))
+				if (port.checkNameExistence(SystemManager.getListOfAirports(), name))
 					checks[2] = true;
 				else
 					System.out.println(print(5));
@@ -46,7 +43,7 @@ public class TestFlightManager {
 				}
 			}
 
-			SystemManager.createAirport(sm.getListOfAirports(), name);
+			SystemManager.createAirport(SystemManager.getListOfAirports(), name);
 			System.out.println(print(1));
 			menu();
 			break;
@@ -66,7 +63,7 @@ public class TestFlightManager {
 					check[1] = true;
 				else
 					System.out.println(print(3));
-				if (line.checkNameExistence(sm.getListOfAirlines(), name))
+				if (line.checkNameExistence(SystemManager.getListOfAirlines(), name))
 					check[2] = true;
 				else
 					System.out.println(print(5));
@@ -75,7 +72,7 @@ public class TestFlightManager {
 					name = input.next();
 				}
 			}
-			SystemManager.createAirline(sm.getListOfAirlines(), name);
+			SystemManager.createAirline(SystemManager.getListOfAirlines(), name);
 			System.out.println(print(1));
 			menu();
 			break;
@@ -92,9 +89,9 @@ public class TestFlightManager {
 			destination = input.next();
 			System.out.print("Enter origin: ");
 			origin = input.next();
-			rnd = sm.rnd(sm.getListOfFlights());
-			sm.createFlight(sm.getListOfFlights(), sm.getListOfAirports().get(port), sm.getListOfAirlines().get(line),
-					origin, destination, rnd);
+			rnd = SystemManager.rnd(SystemManager.getListOfFlights());
+			SystemManager.createFlight(SystemManager.getListOfFlights(), SystemManager.getListOfAirports().get(port),
+					SystemManager.getListOfAirlines().get(line), origin, destination, rnd);
 
 			System.out.println(print(1));
 			menu();
@@ -108,14 +105,14 @@ public class TestFlightManager {
 			org = input.next();
 			System.out.println("Enter ID of the flight: ");
 			int id;
-			System.out.println(
-					sm.listTheList(sm.findAvailableFlights(sm.getListOfFlights(), org, dest)) + "\n" + print(4));
+			System.out.println(SystemManager.listTheList(
+					SystemManager.findAvailableFlights(SystemManager.getListOfFlights(), org, dest)) + "\n" + print(4));
 			id = ScanInt();
 			System.out.println("Pick seat: ");
-			for (int i = 0; i < sm.getListOfFlights().size(); i++) {
-				if (sm.getListOfFlights().get(i).getId() == id) {
-					temp = sm.getListOfFlights().get(i);
-					System.out.println(fly.availableSeats(sm.getListOfFlights().get(i)));
+			for (int i = 0; i < SystemManager.getListOfFlights().size(); i++) {
+				if (SystemManager.getListOfFlights().get(i).getId() == id) {
+					temp = SystemManager.getListOfFlights().get(i);
+					System.out.println(Flight.availableSeats(SystemManager.getListOfFlights().get(i)));
 				}
 			}
 			System.out.print("Enter row: ");
@@ -163,13 +160,13 @@ public class TestFlightManager {
 			text = "============================";
 
 		if (decision == 7) {
-			for (int i = 0; i < sm.getListOfAirports().size(); i++) {
-				text = text + i + " - " + sm.getListOfAirports().get(i).getName() + "\n";
+			for (int i = 0; i < SystemManager.getListOfAirports().size(); i++) {
+				text = text + i + " - " + SystemManager.getListOfAirports().get(i).getName() + "\n";
 			}
 		}
 		if (decision == 8) {
-			for (int i = 0; i < sm.getListOfAirlines().size(); i++) {
-				text = text + i + " - " + sm.getListOfAirlines().get(i).getName() + "\n";
+			for (int i = 0; i < SystemManager.getListOfAirlines().size(); i++) {
+				text = text + i + " - " + SystemManager.getListOfAirlines().get(i).getName() + "\n";
 			}
 		}
 

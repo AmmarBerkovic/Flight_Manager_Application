@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SystemManager {
-	static SystemManager sm = new SystemManager();
-	private ArrayList<Airport> listOfAirports = new ArrayList<Airport>();
-	private ArrayList<Flight> listOfFlights = new ArrayList<Flight>();
-	private ArrayList<Airline> listOfAirlines = new ArrayList<Airline>();
+	private static ArrayList<Airport> listOfAirports = new ArrayList<Airport>();
+	private static ArrayList<Flight> listOfFlights = new ArrayList<Flight>();
+	private static ArrayList<Airline> listOfAirlines = new ArrayList<Airline>();
 
 	public SystemManager() {
 
@@ -21,12 +20,12 @@ public class SystemManager {
 		list.add(new Airline(name));
 	}
 
-	public void createFlight(ArrayList<Flight> list, Airport port, Airline line, String origin, String destination,
+	public static void createFlight(ArrayList<Flight> list, Airport port, Airline line, String origin, String destination,
 			int rnd) {
 		list.add(new Flight(rnd, line, port, origin, destination, seats()));
 	}
 
-	public ArrayList<Flight> findAvailableFlights(ArrayList<Flight> list, String origin, String destination) {
+	public static ArrayList<Flight> findAvailableFlights(ArrayList<Flight> list, String origin, String destination) {
 		ArrayList<Flight> availableFlights = new ArrayList<Flight>();
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getOrigin().equals(origin)) {
@@ -36,7 +35,7 @@ public class SystemManager {
 		return availableFlights;
 	}
 
-	public String listTheList(ArrayList<Flight> list) {
+	public static String listTheList(ArrayList<Flight> list) {
 		String text = "";
 		for (int i = 0; i < list.size(); i++) {
 			text = text + "ID: " + list.get(i).getId() + ", Airline: " + list.get(i).getAirline().getName() + ", Airport: "
@@ -45,19 +44,33 @@ public class SystemManager {
 		return text;
 	}
 
-	public ArrayList<Airport> getListOfAirports() {
+	
+
+	public static ArrayList<Airport> getListOfAirports() {
 		return listOfAirports;
 	}
 
-	public ArrayList<Flight> getListOfFlights() {
+	public static void setListOfAirports(ArrayList<Airport> listOfAirports) {
+		SystemManager.listOfAirports = listOfAirports;
+	}
+
+	public static ArrayList<Flight> getListOfFlights() {
 		return listOfFlights;
 	}
 
-	public ArrayList<Airline> getListOfAirlines() {
+	public static void setListOfFlights(ArrayList<Flight> listOfFlights) {
+		SystemManager.listOfFlights = listOfFlights;
+	}
+
+	public static ArrayList<Airline> getListOfAirlines() {
 		return listOfAirlines;
 	}
 
-	public int rnd(ArrayList<Flight> list) {
+	public static void setListOfAirlines(ArrayList<Airline> listOfAirlines) {
+		SystemManager.listOfAirlines = listOfAirlines;
+	}
+
+	public static int rnd(ArrayList<Flight> list) {
 		int no = (int) (Math.random() * 10000 + 1);
 		if (list.size() == 0) {
 			return no;
@@ -71,7 +84,7 @@ public class SystemManager {
 		return no;
 	}
 
-	public ArrayList<Seat> seats() {
+	public static ArrayList<Seat> seats() {
 		String row = "";
 		ArrayList<Seat> seat = new ArrayList<Seat>();
 		for (int i = 0; i < 6; i++) {
