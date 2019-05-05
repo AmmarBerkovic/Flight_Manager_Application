@@ -1,4 +1,4 @@
-***Flight manager application***
+***<h3>Flight manager application<h3>***
 
 1. An airport must have a name consisting of exactly three alphabetical characters. No two airports can have the same name.
 2. An airline has a name that must have less than 6 alphabetic characters. No two airlines can have the same name.
